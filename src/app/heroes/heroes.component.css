@@ -28,7 +28,7 @@
 .heroes li:hover {
   color: #607D8B;
   background-color: #DDD;
-  left: .1em;
+  left: .2em;
 }
 
 .heroes .text {
