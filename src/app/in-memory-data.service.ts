@@ -1,10 +1,11 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Todo } from './class/todo'
+import { Hero } from './class/hero'
 
 export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
-    const heroes = [
+    const heroes: Hero[] = [
       { id: 11, name: 'Mr. Nice' },
       { id: 12, name: 'Narco' },
       { id: 13, name: 'Bombasto' },

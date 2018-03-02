@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { TODOS } from '../mock-todos'
 
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { MessageService } from './message.service'
 
 
 @Injectable()
@@ -18,6 +19,7 @@ export class TodoService {
   private todoUrl = 'api/todos'
 
   constructor(
+    private messageService: MessageService,
     private http: HttpClient
   ) { }
 
@@ -28,7 +30,13 @@ export class TodoService {
   getTodos(): Observable<Todo[]> {
     // return of(TODOS)
     return this.http.get<Todo[]>(this.todoUrl)
+      .pipe(
+        tap(() => this.log("Todos"))
+      )
+  }
 
+  private log(message: string) {
+    this.messageService.add('fetched' + message)
   }
 
 }
