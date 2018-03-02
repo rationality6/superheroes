@@ -9,18 +9,26 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { TODOS } from '../mock-todos'
 
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+
+
 @Injectable()
 export class TodoService {
 
+  private todoUrl = 'api/todos'
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
     this.getTodos()
   }
 
   getTodos(): Observable<Todo[]> {
-    return of(TODOS)
+    // return of(TODOS)
+    return this.http.get<Todo[]>(this.todoUrl)
+
   }
 
 }
