@@ -7,8 +7,6 @@ import { of } from 'rxjs/observable/of'
 
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { TODOS } from '../mock-todos'
-
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { MessageService } from './message.service'
 
@@ -28,7 +26,6 @@ export class TodoService {
   }
 
   getTodos(): Observable<Todo[]> {
-    // return of(TODOS)
     return this.http.get<Todo[]>(this.todoUrl)
       .pipe(
         tap(() => this.log("Todos"))
