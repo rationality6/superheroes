@@ -19,7 +19,7 @@ import { HeroService } from '../services/hero.service'
 
 export class HeroSearchComponent implements OnInit {
   heroes$: Observable<Hero[]>
-  
+
   private searchTerms = new Subject<string>()
 
   constructor(
