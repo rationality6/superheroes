@@ -1,0 +1,12 @@
+.box{
+  width: 350px;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.right{
+  display: inline;
+  position: absolute;
+  right: 0;
+}

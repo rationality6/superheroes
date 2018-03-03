@@ -24,4 +24,13 @@ export class TodoListComponent implements OnInit {
       .subscribe(todos => this.todos = todos)
   }
 
+  add(todo: string): void {
+    console.log(todo)
+  }
+
+  del(todo: Todo): void {
+    this.todos = this.todos.filter(i => i !== todo)
+    this.todoService.deleteTodo(todo).subscribe()
+  }
+
 }

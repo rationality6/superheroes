@@ -1,7 +1,8 @@
 <div>
-  <p></p>
-  todo-list works!
-  <div *ngFor="let todo of todos">
+  <input #todo>
+  <button (click)="add(todo.value); todo.value=''">add</button>
+  <div *ngFor="let todo of todos" class="box">
     {{todo.id}} | {{todo.name}}
+    <button class="btn btn-secondary" (click)="del(todo)">x</button>
   </div>
 </div>
