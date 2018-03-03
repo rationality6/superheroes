@@ -31,7 +31,16 @@ export class TodoService {
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todoUrl)
       .pipe(
-        tap(() => this.log("Todos"))
+        tap(() => this.log("Todos")),
+        catchError(this.handleError('getHeroes', []))
+      )
+  }
+
+  addTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(this.todoUrl, todo, httpOptions)
+      .pipe(
+        tap((todo: Todo) => this.log(`added todo w/ id = ${todo.id}`)),
+        catchError(this.handleError<Todo>('addTodo'))
       )
   }
 
@@ -39,6 +48,14 @@ export class TodoService {
     const id = todo.id
     const url = `${this.todoUrl}/${id}`
     return this.http.delete<Todo>(url, httpOptions)
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error)
+      this.log(`${operation} failed: ${error.message}`)
+      return of(result as T)
+    }
   }
 
   private log(message: string) {
