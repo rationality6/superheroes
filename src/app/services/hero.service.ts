@@ -10,6 +10,10 @@ import { of } from 'rxjs/observable/of'
 
 import { catchError, map, tap } from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable()
 export class HeroService {
 
@@ -53,11 +57,6 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Observable<any> {
-
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-
     return this.http.put(this.heroesUrl, hero, httpOptions)
       .pipe(
         tap(_ => this.log('updated hero id=${hero.id}')),
@@ -66,10 +65,6 @@ export class HeroService {
   }
 
   addHero(hero: Hero): Observable<Hero> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
       .pipe(
         tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
@@ -78,10 +73,6 @@ export class HeroService {
   }
 
   deleteHero(hero: Hero | number): Observable<Hero> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-
     const id = typeof hero === 'number' ? hero : hero.id
     const url = `${this.heroesUrl}/${id}`
 
@@ -91,7 +82,5 @@ export class HeroService {
         catchError(this.handleError<Hero>('deleteHero'))
       )
   }
-
-
 
 }
