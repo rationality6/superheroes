@@ -28,6 +28,10 @@ export class TodoService {
     this.getTodos()
   }
 
+  updateTodo(todo: Todo): Observable<any> {
+    return this.http.put(this.todoUrl, todo, httpOptions)
+  }
+
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todoUrl)
       .pipe(

@@ -1,6 +1,10 @@
 <div *ngIf="todo">
-  <p>
-    {{todo.id}} {{todo.name}}
+  <div>ID: {{todo.id}}</div>
+  <div>Todo: <input [(ngModel)]="todo.name" type="text" name="" value=""></div>
+
+  <div>
+    <button class="btn btn-primary" (click)="save()" type="button" name="button">update</button>
     <button class="btn btn-warning" (click)="goBack()">go back</button>
-  </p>
+  </div>
+
 </div>

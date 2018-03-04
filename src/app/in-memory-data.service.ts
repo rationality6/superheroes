@@ -15,7 +15,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 17, name: 'Dynama' },
       { id: 18, name: 'Dr IQ' },
       { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 20, name: 'Tornado' },
     ]
 
     const todos: Todo[] = [
@@ -25,7 +25,8 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 3, name: "Running" },
       { id: 4, name: "Exercise" },
       { id: 5, name: "Coding" },
-      { id: 6, name: "thinking about lunch" }
+      { id: 6, name: "Thinking about lunch" },
+      { id: 7, name: "Study" },
     ]
     return { heroes, todos };
   }
