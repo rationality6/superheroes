@@ -1,8 +1,15 @@
 <div>
-  <input #todo>
-  <button (click)="add(todo.value); todo.value=''">add</button>
+  <form class="" action="index.html" method="post">
+    <input #todo>
+    <button class="btn btn-primary" (click)="add(todo.value); todo.value=''">Add</button>
+  </form>
+
   <div *ngFor="let todo of todos" class="box">
-    {{todo.id}} | {{todo.name}}
+
+    <a routerLink="/todolist_detail/{{todo.id}}">
+      {{todo.id}} | {{todo.name}}
+    </a>
+
     <button class="btn btn-secondary" (click)="del(todo)">x</button>
   </div>
 </div>

@@ -1,3 +1,6 @@
-<p>
-  todo-detail works!
-</p>
+<div *ngIf="todo">
+  <p>
+    {{todo.id}} {{todo.name}}
+    <button class="btn btn-warning" (click)="goBack()">go back</button>
+  </p>
+</div>

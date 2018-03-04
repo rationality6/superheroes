@@ -36,6 +36,15 @@ export class TodoService {
       )
   }
 
+  getTodo(id: number): Observable<Todo> {
+    const url = `${this.todoUrl}/${id}`
+    return this.http.get<Todo>(url)
+      .pipe(
+        tap(_ => this.log(`fetched todo id=${id}`)),
+        catchError(this.handleError<Todo>(`getTodo id=${id}`))
+      )
+  }
+
   addTodo(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.todoUrl, todo, httpOptions)
       .pipe(
