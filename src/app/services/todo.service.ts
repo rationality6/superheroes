@@ -75,4 +75,13 @@ export class TodoService {
     this.messageService.add('fetched' + message)
   }
 
+  searchTodos(term: string): Observable<Todo[]> {
+    if (!term.trim()) {
+      return of([])
+    }
+    return this.http.get<Todo[]>(`api/heroes/?name=${term}`).pipe(
+
+    )
+  }
+
 }

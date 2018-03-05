@@ -1,0 +1,5 @@
+<h3>Top Heroes</h3>
+
+<a *ngFor="let todo of todos" routerLink="/todo_detail/{{todo.id}}">
+  <h4>{{todo.name}}</h4>
+</a>

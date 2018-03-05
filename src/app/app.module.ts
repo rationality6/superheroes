@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { TodoSearchComponent } from './todo-search/todo-search.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     TodoListComponent,
     TodoDetailComponent,
     PlaygroundComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    TodoSearchComponent
   ],
   imports: [
     BrowserModule,
