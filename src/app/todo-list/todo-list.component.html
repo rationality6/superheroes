@@ -1,4 +1,5 @@
 <div>
+  <app-todo-search></app-todo-search>
   <form class="" action="index.html" method="post">
     <input #todo>
     <button class="btn btn-primary" (click)="add(todo.value); todo.value=''">Add</button>
@@ -13,5 +14,3 @@
     <button class="btn btn-secondary" (click)="del(todo)">x</button>
   </div>
 </div>
-
-<app-hero-search></app-hero-search>

@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../class/todo'
+import { TodoService } from '../services/todo.service'
+
+import { Observable } from 'rxjs/Observable'
+import { Subject } from 'rxjs/Subject'
+
+import {
+  debounceTime, distinctUntilChanged, switchMap
+} from 'rxjs/operators'
 
 @Component({
   selector: 'app-todo-search',
@@ -6,13 +15,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-search.component.css']
 })
 export class TodoSearchComponent implements OnInit {
+  todos$: Observable<Todo[]>
 
-  constructor() { }
+  private searchTerms = new Subject<string>()
 
-  ngOnInit() {
-    this.heroes$ = this.searchTerms.pipe(
+  constructor(
+    private todoService: TodoService
+  ) { }
+
+  ngOnInit(): void {
+    this.todos$ = this.searchTerms.pipe(
       debounceTime(300),
-      distinctUntilChange()
+      distinctUntilChanged(),
+      switchMap((term: string) => this.todoService.searchTodos(term))
     )
   }
 

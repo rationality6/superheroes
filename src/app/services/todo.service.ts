@@ -79,7 +79,7 @@ export class TodoService {
     if (!term.trim()) {
       return of([])
     }
-    return this.http.get<Todo[]>(`api/heroes/?name=${term}`).pipe(
+    return this.http.get<Todo[]>(`api/todos/?name=${term}`).pipe(
 
     )
   }

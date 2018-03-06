@@ -1,5 +1,7 @@
-<h3>Top Heroes</h3>
+search: <input #searchInput (keyup)="search(searchInput.value)">
 
-<a *ngFor="let todo of todos" routerLink="/todo_detail/{{todo.id}}">
-  <h4>{{todo.name}}</h4>
-</a>
+<div *ngFor="let todo of todos$ | async">
+  <a routerLink="/todolist_detail/{{todo.id}}">
+  {{todo.id}} | {{todo.name}}
+  </a>
+</div>
