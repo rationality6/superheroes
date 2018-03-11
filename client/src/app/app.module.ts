@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroService } from './services/hero.service';
 import { MessageService } from './services/message.service';
 import { TodoService } from './services/todo.service'
+import { RailsPostsService } from './services/rails-posts.service'
 
 import { HttpClientModule } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -49,9 +50,11 @@ import { TodoSearchComponent } from './todo-search/todo-search.component';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [HeroService,
+  providers: [
+    HeroService,
     MessageService,
-    TodoService
+    TodoService,
+    RailsPostsService
   ],
   bootstrap: [AppComponent]
 
