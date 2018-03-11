@@ -202,3 +202,6 @@ typings/
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
+
+/log
+log/

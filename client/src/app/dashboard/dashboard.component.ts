@@ -2,14 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../class/hero'
 import { HeroService } from '../services/hero.service'
 
+import { InMemoryDataService } from '../in-memory-data.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers: [
+    { provide: XHRBackend, useClass: InMemoryDataService } // in-mem server
+    // { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
+  ]
 })
+
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = []
-  constructor(private heroService: HeroService) {
+  constructor(
+    private heroService: HeroService
+  ) {
 
   }
 

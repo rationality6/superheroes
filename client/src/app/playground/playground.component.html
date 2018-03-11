@@ -5,7 +5,14 @@
 <div *ngFor="let post of posts">
   {{post.id}}
   {{post.name}}
+  {{post.title}}
+  {{post.content}}
+  {{post.created_at}}
+  {{post.updated_at}}
+  {{post.url}}
 </div>
+
+
 
 <input #checker />
 <button (click)="test(checker.value)">test</button>
