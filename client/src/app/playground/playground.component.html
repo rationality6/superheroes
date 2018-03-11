@@ -2,5 +2,10 @@
   playground works!
 </p>
 
+<div *ngFor="let post of posts">
+  {{post.id}}
+  {{post.name}}
+</div>
+
 <input #checker />
 <button (click)="test(checker.value)">test</button>

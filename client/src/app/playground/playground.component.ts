@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { RailsPostsService } from '../services/rails-posts.service'
 
 @Component({
@@ -9,6 +8,7 @@ import { RailsPostsService } from '../services/rails-posts.service'
 })
 
 export class PlaygroundComponent implements OnInit {
+  posts;
 
   constructor(
     private railsPostsService: RailsPostsService
@@ -17,16 +17,18 @@ export class PlaygroundComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getData()
+    this.getPosts()
   }
 
   test(n: string): void {
     console.log(n);
   }
 
-  getData() {
+  getPosts(): void {
     this.railsPostsService.getPosts()
+      .subscribe(data => {
+        return this.posts = data
+      })
   }
-
 
 }
